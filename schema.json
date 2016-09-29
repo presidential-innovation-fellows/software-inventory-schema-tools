@@ -27,7 +27,7 @@
             "properties": {
                 "name": {
                     "title": "name",
-                    "description: "Project name",
+                    "description": "Project name",
                     "type": "string"
                 },
                 "description": {
