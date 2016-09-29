@@ -2,8 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "required": [
-        "agency",
-        "project"
+        "agency"
     ],
     "properties": {
         "agency": {
@@ -11,8 +10,8 @@
             "description": "Agency name",
             "type": "string"
         },
-        "project": {
-            "title": "project",
+        "projects": {
+            "title": "projects",
             "description": "Agency projects",
             "type": "object",
             "required": [
@@ -21,8 +20,7 @@
                 "license",
                 "openSourceProject",
                 "governmentWideReuseProject",
-                "tags",
-                "contact"
+                "tags"
             ],
             "properties": {
                 "name": {

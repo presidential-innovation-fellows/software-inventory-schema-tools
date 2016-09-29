@@ -1,22 +1,32 @@
-$.getJSON("https://raw.githubusercontent.com/theresaanna/software-inventory-schema-tools/master/schema.json", function(json) {
+$.getJSON("../schema.json", function(json) {
 $("#form").alpaca({
     "schema": json,
     "options": {
       "form": {
         "buttons": {
           "submit": {
-            "title": "Render code.json",
+            "title": "Add project",
             "click": function () {
-                var val = this.getValue();
+                var val = this.getValue(),
+                    projects = val.projects;
+                val.projects = [];
+                val.projects.push(projects);
                 if (this.isValid(true)) {
-                    $("#results").text('');
+                  if ($("#results").html() !== "") {
+                    var results = JSON.stringify(val, null, "  "),
+                        existingJSON = $("#results").html().slice(0, -9) + "  },";
+                    $("#results").html(existingJSON);
+                    results = results.substring(results.indexOf("[") + 1);
+                    $("#results").append(results);
+                   }
+                   else {
                     var results = JSON.stringify(val, null, "  ");
                     $("#results").append(results);
                     $("#download").removeAttr('disabled');
                     $("#download_link").attr({
                       'href': 'data:text/json;charset=utf-8,' + encodeURIComponent(results),
                       'target': '_blank',
-                      'download': 'code.json'                          
+                      'download': 'civic.json'                          
                     });
                 }                    
               }
@@ -24,5 +34,5 @@ $("#form").alpaca({
           }
         }
       }
-  });
+  }});
 });
