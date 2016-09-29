@@ -1,4 +1,4 @@
-$.getJSON("", function(json) {
+$.getJSON("https://raw.githubusercontent.com/theresaanna/software-inventory-schema-tools/master/schema.json", function(json) {
 $("#form").alpaca({
     "schema": json,
     "options": {
