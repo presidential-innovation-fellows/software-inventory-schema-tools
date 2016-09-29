@@ -69,7 +69,7 @@
                 "status": {
                     "title": "status",
                     "description": "Project status",
-                    type: "string",
+                    "type": "string",
                     "enum": [
                         "Ideation",
                         "Alpha",
