@@ -7,6 +7,11 @@ $("#form").alpaca({
           "submit": {
             "title": "Add project",
             "click": function () {
+              // the Alpaca library doesn't seem to be able to handle multiple groups of fields,
+              // for example, the `projects` array being full of objects doesn't seem to work within
+              // alpaca. I made it so that we marry the existing and new JSON object strings to create
+              // a JSON file with multiple projects. this was my single-day solution, I'd prefer to 
+              // extend Alpaca or at least cache the actual JSON for joining with the new JSON.
               var val = this.getValue(),
                 projects = val.projects;
               val.projects = [];
